@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Cards</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div id="container" class="images flex w-full h-screen overflow-y-hidden gap-2 justify-center">
+        <div onclick="handleClick(event)"
+            class="w-full flex justify-center items-center cursor-pointer transition-all duration-700">
+            <div class="relative h-[90%]">
+                <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="" class="h-full object-cover rounded-4xl">
+                <p class="absolute bottom-4 left-4 text-white text-2xl font-bold drop-shadow-lg">
+                    Mountains - Clouds
+                </p>
+            </div>
+        </div>
+        <div onclick="handleClick(event)"
+            class="w-[10%] flex justify-center items-center cursor-pointer transition-all duration-700">
+            <div class="relative h-[90%]">
+                <img src="https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
+                    alt="" class="h-full object-cover rounded-4xl">
+                <p class="absolute bottom-4 left-4 text-white text-2xl font-bold drop-shadow-lg hidden">
+                    City on winter
+                </p>
+            </div>
+        </div>
+        <div onclick="handleClick(event)"
+            class="w-[10%] flex justify-center items-center cursor-pointer transition-all duration-700">
+            <div class="relative h-[90%]">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80"
+                    alt="" class="h-full object-cover rounded-4xl">
+                <p class="absolute bottom-4 left-4 text-white text-2xl font-bold drop-shadow-lg hidden">
+                    Sunny beach
+                </p>
+            </div>
+        </div>
+        <div onclick="handleClick(event)"
+            class="w-[10%] flex justify-center items-center cursor-pointer transition-all duration-700">
+            <div class="relative h-[90%]">
+                <img src="https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="" class="h-full object-cover rounded-4xl">
+                <p class="absolute bottom-4 left-4 text-white text-2xl font-bold drop-shadow-lg hidden">
+                    Wild forest
+                </p>
+            </div>
+        </div>
+        <div onclick="handleClick(event)"
+            class="w-[10%] flex justify-center items-center cursor-pointer transition-all duration-500">
+            <div class="relative h-[90%]">
+                <img src="https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                    alt="" class="h-full object-cover rounded-4xl">
+                <p class="absolute bottom-4 left-4 text-white text-2xl font-bold drop-shadow-lg hidden">
+                    Explore the world
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    function handleClick(e) {
+        const container = document.getElementById("container");
+
+        let element = event.currentTarget;
+
+        for (let i = 0; i < container.children.length; i++) {
+            container.children[i].classList.remove("w-full");
+            container.children[i].classList.add("w-[10%]");
+            container.children[i].children[0].children[1].classList.add("hidden");
+        }
+        if (element.classList.contains("w-[10%]")) {
+            element.classList.remove("w-[10%]");
+            element.classList.add("w-full");
+            element.children[0].children[1].classList.toggle("hidden");
+        }
+
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#f5f6fa] text-[#a698a6]">
+    <div class="w-full h-screen flex flex-col justify-center items-center gap-2">
+        <div class="progress flex items-center justify-center" id="progress">
+            <div
+                class="w-[32px] h-[32px] bg-white border-3 border-blue-400 rounded-full flex justify-center items-center transition-all  duration-500">
+                1
+            </div>
+            <div
+                class="w-[32px] h-[1px] border-2 border-[#e0e0e0] flex justify-center items-center transition-all duration-500">
+            </div>
+            <div
+                class="w-[32px] h-[32px] bg-white border-3 border-[#e0e0e0] rounded-full flex justify-center items-center transition-all duration-500">
+                2
+            </div>
+            <div
+                class="w-[32px] h-[1px] border-2 border-[#e0e0e0] flex justify-center items-center transition-all duration-500">
+            </div>
+            <div
+                class="w-[32px] h-[32px] bg-white border-3 border-[#e0e0e0] rounded-full flex justify-center items-center transition-all duration-500">
+                3
+            </div>
+            <div
+                class="w-[32px] h-[1px] border-2 border-[#e0e0e0] flex justify-center items-center transition-all duration-500">
+            </div>
+            <div
+                class="w-[32px] h-[32px] bg-white border-3 border-[#e0e0e0] rounded-full flex justify-center items-center transition-all duration-500">
+                4
+            </div>
+            <div
+                class="w-[32px] h-[1px] border-2 border-[#e0e0e0] flex justify-center items-center transition-all duration-500">
+            </div>
+            <div
+                class="w-[32px] h-[32px] bg-white border-3 border-[#e0e0e0] rounded-full flex justify-center items-center transition-all duration-500">
+                5
+            </div>
+            <div
+                class="w-[32px] h-[1px] border-2 border-[#e0e0e0] flex justify-center items-center transition-all duration-500">
+            </div>
+            <div
+                class="w-[32px] h-[32px] bg-white border-3 border-[#e0e0e0] rounded-full flex justify-center items-center transition-all duration-500">
+                6
+            </div>
+        </div>
+        <div class="buttons flex justify-center items-center gap-4">
+            <button id="prev" disabled
+                class="bg-blue-500 text-white py-2 px-6 rounded-lg disabled:opacity-50 disabled:pointer-events-none hover:bg-blue-600">Prev</button>
+            <button id="next"
+                class="bg-blue-500 text-white py-2 px-6 rounded-lg disabled:opacity-50 disabled:pointer-events-none hover:bg-blue-600">Next</button>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script>
+    let progress = document.getElementById("progress");
+    let prev = document.getElementById("prev");
+    let next = document.getElementById("next");
+    let current = 0;
+
+    next.addEventListener("click", () => {
+        current += 2;
+        prev.disabled = false;
+
+        if (current >= progress.children.length - 1) {
+            current = progress.children.length - 1;
+            next.disabled = true;
+        } else {
+            next.disabled = false;
+        }
+
+        for (let i = 0; i <= current && i < progress.children.length; i++) {
+            const element = progress.children[i];
+            if (element.classList.contains("border-blue-400")) {
+                continue;
+            } else {
+                element.classList.add("border-blue-400");
+                element.classList.remove("border-[#e0e0e0]");
+            }
+        }
+    })
+
+    prev.addEventListener("click", () => {
+
+
+        const cirleIndex = current;
+        const lineIndex = current - 1;
+        next.disabled = false;
+        if (progress.children[cirleIndex]) {
+            progress.children[cirleIndex].classList.remove("border-blue-400");
+            progress.children[cirleIndex].classList.add("border-[#e0e0e0]");
+        }
+
+        if (progress.children[lineIndex] && lineIndex >= 0) {
+            progress.children[lineIndex].classList.remove("border-blue-400");
+            progress.children[lineIndex].classList.add("border-[#e0e0e0]");
+        }
+        current -= 2;
+        if (current <= 0) {
+            current = 0;
+            prev.disabled = true;
+        } else {
+            prev.disabled = false;
+        }
+
+
+
+
+    })
+</script>
+
+
+</html>
