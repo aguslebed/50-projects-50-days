@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#333333] overflow-x-hidden">
+
+
+    <div id="hamburguerMenu" onclick="toggleMenu()"
+        class="fixed top-0 top-[-100px] left-[-100px] w-[200px] h-[200px] bg-[#ff7878] rounded-full z-10">
+        <img id="hamburguer" class="w-8 h-8 absolute bottom-10 right-10" src="icons/hamburger-menu-svgrepo-com.svg"
+            alt="">
+        <img id="cross" class="w-8 h-8 absolute bottom-10 right-10 hidden" src="icons/cross-svgrepo-com.svg" alt="">
+    </div>
+    <div class="flex justify-center items-center h-screen ">
+
+        <div>
+            <div id="container" class="flex flex-col w-full h-screen bg-[#fafafa]
+            pt-[100px]
+            gap-6 transition-all duration-500 origin-top-left overflow-x-hidden">
+                <div id="title" class="w-[50%] m-auto flex  flex-col">
+                    <h1 class="text-2xl font-bold">Amazing Article</h1>
+                    <small class="text-gray-500 italic text-md">
+                        Florin Pop
+                    </small>
+                </div>
+                <div class="content flex flex-col w-[50%] gap-6 my-6 justify-center m-auto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia in ratione dolores
+                        cupiditate,
+                        maxime aliquid impedit dolorem nam dolor omnis atque fuga labore modi veritatis porro laborum
+                        minus,
+                        illo, maiores recusandae cumque ipsa quos. Tenetur, consequuntur mollitia labore pariatur sunt
+                        quia
+                        harum aut. Eum maxime dolorem provident natus veritatis molestiae cumque quod voluptates ab non,
+                        tempore
+                        cupiditate? Voluptatem, molestias culpa. Corrupti, laudantium iure aliquam rerum sint nam quas
+                        dolor
+                        dignissimos in error placeat quae temporibus minus optio eum soluta cupiditate! Cupiditate saepe
+                        voluptates laudantium. Ducimus consequuntur perferendis consequatur nobis exercitationem
+                        molestias
+                        fugiat commodi omnis. Asperiores quia tenetur nemo ipsa.</p>
+                    <h2 class="text-xl font-semibold">My dog</h2>
+                    <div class="image w-full flex justify-center">
+                        <img class="w-[70%] flex items-center"
+                            src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2100&amp;q=80"
+                            alt="doggy">
+                    </div>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit libero deleniti rerum quo, incidunt
+                        vel
+                        consequatur culpa ullam. Magnam facere earum unde harum. Ea culpa veritatis magnam at aliquid.
+                        Perferendis totam placeat molestias illo laudantium? Minus id minima doloribus dolorum fugit
+                        deserunt
+                        qui vero voluptas, ut quia cum amet temporibus veniam ad ea ab perspiciatis, enim accusamus
+                        asperiores
+                        explicabo provident. Voluptates sint, neque fuga cum illum, tempore autem maxime similique
+                        laborum
+                        odio,
+                        magnam esse. Aperiam?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu fixed bottom-30 left-20 fixed z-10 text-white ">
+        <div id="home"
+            class="home flex items-center gap-2 font-bold my-4 text-xl transition-all duration-1000 ease-in-out opacity-0 pointer-events-none">
+            <img class="w-8 h-8 brightness-0 invert" src=" icons/home-icon-silhouette-svgrepo-com.svg" alt="">
+            <span>Home</span>
+        </div>
+        <div id="about"
+            class="about flex items-center gap-2 font-bold my-4 text-xl transition-all duration-1000 ease-in-out opacity-0 pointer-events-none">
+            <img class="w-8 h-8 brightness-0 invert" src="icons/person-svgrepo-com.svg" alt=""> <span>About</span>
+        </div>
+        <div id="contact"
+            class="contact flex items-center gap-2 font-bold my-4 text-xl transition-all duration-1000 ease-in-out opacity-0 pointer-events-none">
+            <img class="w-8 h-8 brightness-0 invert" src="icons/mail-open-svgrepo-com.svg" alt=""> <span>Contact</span>
+        </div>
+    </div>
+
+
+    <script>
+        const container = document.getElementById('container');
+        const home = document.getElementById('home');
+        const about = document.getElementById('about');
+        const contact = document.getElementById('contact');
+        const cross = document.getElementById('cross');
+        const hamburguerMenu = document.getElementById('hamburguer');
+
+        function toggleMenu() {
+            const menu = document.getElementById('hamburguerMenu');
+            container.classList.toggle('rotate-[-18deg]');
+            home.classList.toggle('opacity-0');
+            home.classList.toggle('pointer-events-none');
+            about.classList.toggle('opacity-0');
+            about.classList.toggle('pointer-events-none');
+            contact.classList.toggle('opacity-0');
+            contact.classList.toggle('pointer-events-none');
+            cross.classList.toggle('hidden');
+            hamburguerMenu.classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+
+</html>
