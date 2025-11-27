@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../dist/output.css">
+</head>
+
+<body id="body" class="bg-[#121212] h-screen flex flex-col justify-center items-center">
+    <div id="container" class="h-1/2 w-1/2 gap-1 flex justify-center items-center flex-wrap">
+    </div>
+</body>
+
+<script>
+    const colores = [
+        "#FF0000", // rojo
+        "#00FF00", // verde
+        "#0000FF", // azul
+        "#FFFF00", // amarillo
+        "#FFA500", // naranja
+        "#800080", // púrpura
+        "#00FFFF", // cyan
+        "#FF00FF", // magenta
+        "#A52A2A", // marrón
+        "#008000", // verde oscuro
+        "#FFC0CB", // rosa
+        "#87CEEB", // celeste
+    ];
+
+    let container = document.getElementById("container");
+    for (let i = 0; i < 504; i++) {
+        const cuadrado = document.createElement("div");
+        cuadrado.id = "cuadrado";
+        cuadrado.classList.add("h-5", "w-5", "bg-[#1c1c1c]", "transition-all", "duration-800", "ease-in-out");
+        cuadrado.addEventListener("mouseover", () => {
+            cuadrado.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+        });
+
+        cuadrado.addEventListener("mouseout", () => {
+            setTimeout(() => {
+                cuadrado.style.backgroundColor = "#1c1c1c";
+            }, 800);
+        });
+        container.appendChild(cuadrado);
+    }
+
+
+</script>
+
+</html>
