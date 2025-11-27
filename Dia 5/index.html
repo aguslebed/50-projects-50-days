@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 5 - Proyecto con Tailwind</title>
+    <!-- Tailwind CSS compilado localmente -->
+    <link rel="stylesheet" href="../dist/output.css">
+</head>
+
+<body id="body" class="relative">
+    <section id="section"
+        class="transition-all blur-2xl duration-1000 ease-in-out bg-[url('../Dia%205/img/photo-1576161787924-01bb08dad4a4.avif')]  min-h-screen">
+    </section>
+    <div
+        class="loading-text flex items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <span id="loading-text"
+            class="text-4xl text-white/100 font-bold transition-all  duration-1000 ease-in-out">0%</span>
+    </div>
+</body>
+
+<script>
+    const section = document.getElementById('section');
+    const loadingText = document.querySelector('#loading-text');
+
+    for (let i = 0; i <= 100; i++) {
+        setTimeout(() => {
+            document.querySelector('#loading-text').textContent = i + '%';
+            if (i === 20) {
+                section.classList.remove('blur-2xl');
+                section.classList.add('blur-xl');
+                loadingText.classList.remove('text-white/100');
+                loadingText.classList.add('text-white/80');
+            }
+            if (i === 40) {
+                section.classList.remove('blur-xl');
+                section.classList.add('blur-lg');
+                loadingText.classList.remove('text-white/80');
+                loadingText.classList.add('text-white/60');
+            }
+            if (i === 60) {
+                section.classList.remove('blur-lg');
+                section.classList.add('blur-md');
+                loadingText.classList.remove('text-white/60');
+                loadingText.classList.add('text-white/40');
+            }
+            if (i === 80) {
+                section.classList.remove('blur-md');
+                section.classList.add('blur-sm');
+                loadingText.classList.remove('text-white/40');
+                loadingText.classList.add('text-white/20');
+            }
+            if (i === 100) {
+                section.classList.remove('blur-sm');
+                section.classList.add('blur-0');
+                document.querySelector('.loading-text').classList.add('hidden');
+            }
+        }, i * 40);
+
+
+    }
+
+</script>
+
+</html>
