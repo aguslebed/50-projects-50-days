@@ -10,7 +10,7 @@
 </head>
 
 <body id="body" class="bg-[#121212] h-screen flex flex-col justify-center items-center">
-    <div id="container" class="h-1/2 w-1/2 gap-1 flex justify-center items-center flex-wrap">
+    <div id="container" class="h-[500px] w-[500px] gap-1 flex justify-center items-center flex-wrap">
     </div>
 </body>
 
@@ -34,14 +34,17 @@
     for (let i = 0; i < 504; i++) {
         const cuadrado = document.createElement("div");
         cuadrado.id = "cuadrado";
-        cuadrado.classList.add("h-5", "w-5", "bg-[#1c1c1c]", "shadow-xl", "transition-all", "duration-800", "ease-in-out");
+        cuadrado.classList.add("h-5", "w-5", "bg-[#1c1c1c]/50", "transition-all", "duration-800", "ease-in-out");
         cuadrado.addEventListener("mouseover", () => {
-            cuadrado.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+            const bgColor = colores[Math.floor(Math.random() * colores.length)]
+            cuadrado.style.backgroundColor = bgColor;
+            cuadrado.style.boxShadow = "0 0 10px " + bgColor;
         });
 
         cuadrado.addEventListener("mouseout", () => {
             setTimeout(() => {
                 cuadrado.style.backgroundColor = "#1c1c1c";
+                cuadrado.style.boxShadow = "0 0 0 ";
             }, 800);
         });
         container.appendChild(cuadrado);
